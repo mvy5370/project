@@ -1,0 +1,24 @@
+x<-4
+if(x>3){
+print("dd")
+}
+else{
+Print("small")
+}
+
+
+```{r}
+N<-500
+metasample<-rnorm(N,5,2)
+
+bmu<-numeric(1000)
+for (i in 1:1000) {
+  rndno<-as.integer(runif(N)*N)+1
+  smp<-metasample[rndno]
+  bmu[i]<-mean(smp)
+}
+p<-density(bmu)
+plot(p)
+qq<-quantile(bmu)
+rug(qq,col="red")
+```
