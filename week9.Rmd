@@ -1,0 +1,39 @@
+
+```{r}
+uu<-seq(0,1,length=100)
+uu<-uu[c(-1,-100)]
+z_scores <- qnorm(uu)
+pvalues <- pnorm(z_scores)
+plot(z_scores,pvalues,type="l",
+     xlab="z_scores",
+     ylab = "Probability",
+     xaxt="n",
+     main="CDF")
+axis(1, at=which(round(pvalues,2) == 0.2),labels = round(qnorm(0.2),2))
+```
+```{r}
+z_scores<-qnorm(uu)
+z_scores[3]<-NA
+
+which(z_scores==Inf)
+which(z_scores==-Inf)
+
+which(z_scores==NA)
+NA==NA
+NA==0
+NA==Inf
+NA=="dd"
+is.na(z_scores)
+c1<-z_scores[which(!is.na(z_scores))]
+c2<-z_scores[!is.na(z_scores)]
+```
+
+
+```{r}
+x<-rpois(30,2)
+
+getevent<-function(v){
+  return(v[v%%2==0])
+}
+getevent(x)
+```
