@@ -1,0 +1,55 @@
+```{r}
+dn<-data()
+str(dn)
+```
+```{r}
+attributes(dn)
+```
+
+```{r}
+dn$results
+```
+
+```{r}
+dimnames(dn$results)
+dsname<-dn$results[,3]
+```
+```{r}
+head(dn$results)
+```
+
+```{r}
+dimnames(dn$results)
+class(dn$results)
+dsname<-dn$results[,"Item"]
+head(dsname)
+```
+```{r}
+uname<-"BOD"
+length(dsname[dsname==uname])
+```
+
+```{r}
+isDsExists<-function(given){
+  dn<-data()
+  dsname<-dn$results[,"Item"]
+  rst<-length(dsname[dsname==given])
+  if(rst!=0){
+    return(T)
+  }
+  else{
+    return(F)
+  }
+}
+isDsExists("iris")
+```
+```{r}
+library(DT)
+dn<-data()
+dsname<-dn$results[,"Item"]
+df<-data.frame(dsname)
+datatable(df)
+```
+
+
+
